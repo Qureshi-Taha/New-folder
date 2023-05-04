@@ -35,19 +35,16 @@ if ($_GET && $_GET['cid'] && $_GET['title']) {
  <?php include 'footer.php';?>
   <script>
     $(document).ready(function() {
-  // Make API call to retrieve home data
   $.ajax({
     url: `https://service-media-library.onrender.com/categories?cat_id=<?= $cid; ?>`,
     method: "GET",
     dataType : 'json',
     crossDomain: true,
     success: function(response) {
-      // Extract data from API response
       const categoryGrid = [];
       const media = [];
       console.log(response)
 
-      // Loop through response array and extract data
       for (let i = 0; i < response.length; i++) {
         const item = response[i];
         categoryGrid.push(item.title);
@@ -62,7 +59,6 @@ if ($_GET && $_GET['cid'] && $_GET['title']) {
           template_id: item.template_id
         });
       }
-    //   // Display media items in grid view
     if (media.length > 0) {
         for (let i = 0; i < media.length; i++) {
         const item = media[i];
@@ -98,8 +94,6 @@ if ($_GET && $_GET['cid'] && $_GET['title']) {
     }
   });
 });
-
   </script>
-
 </body>
 </html>

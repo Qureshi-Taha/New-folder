@@ -14,6 +14,7 @@
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="index.php">App Logo Here</a>
+ 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -27,4 +28,16 @@
       <!-- </li> -->
     </ul>
   </div>
+  <span class="navbar-text" id="datetime"></span>
 </nav>
+<script>
+function updateTime() {
+  var now = new Date();
+  var date = now.toLocaleDateString();
+  var time = now.toLocaleTimeString();
+  document.getElementById('datetime').textContent = date + ' ' + time;
+}
+
+setInterval(updateTime, 1000); // update every second
+
+</script>
